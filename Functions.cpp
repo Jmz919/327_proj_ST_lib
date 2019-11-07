@@ -2,8 +2,8 @@
 /*
  * Functions.cpp
  *
- *  Created on: Nov 5, 2017
- *      Author: keith
+ *  Created on: Nov 7, 2019
+ *      Author: Josh Zutell
  */
 #include <iostream>
 #include <memory>
@@ -28,14 +28,14 @@ std::vector<std::unique_ptr<Smalltalk>> getPeople(int numBrit,
 	std::vector<std::unique_ptr<Smalltalk>> people;
 
 	//add brits to vector
-
 	for (int i = 0; i < numBrit; i++) {
 		people.push_back(std::unique_ptr<Smalltalk_Brit>(new Smalltalk_Brit(i)));
 	}
 
-	//add americans  to vector
+	//Helps to keep track of total number of people and id of people
 	int totalNum = numAmerican+numBrit;
 
+	//add americans to vector
 	for (int i = numBrit; i < totalNum; i++) {
 		people.push_back(std::unique_ptr<Smalltalk_American>(new Smalltalk_American(i)));
 	}
@@ -51,20 +51,25 @@ std::vector<std::unique_ptr<Smalltalk>> getPeople(int numBrit,
 	//then give the watches away to first NUM_WATCHES people in the vector
 	//when you are finished using the vector you return
 	//from this function(see Smalltalk header for hints)
+	//Vector to hold all the watches
 	std::vector<std::unique_ptr<Watch>> watches;
 
+	//If there are more watches than people
+	//Then only have watches for each person
 	if (numWatches > totalNum) {
 		numWatches = totalNum;
 	}
 
+	//Populate vector of watches
 	for (int i = 0; i < numWatches; i++) {
 		watches.push_back(std::unique_ptr<Watch>(new Watch()));
 	}
 
+	//Assign watches to the first numWatches in the people vector
 	for (int i = 0; i < numWatches; i++) {
 		people[i]->Smalltalk::giveWatch(watches[i]);
 	}
 
-		//return your vector
+	//return people vector
 	return people;
 }

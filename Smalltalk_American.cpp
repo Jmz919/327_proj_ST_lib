@@ -15,6 +15,7 @@
 //create with appropriate phrases
 //use base class call to set Nationality (See constants for Nationality strings)
 Smalltalk_American::Smalltalk_American(int iPerson) : Smalltalk(AMERICAN, iPerson){
+	//ID the person, make the watch null, and populate the phrases
 	this->iPerson = iPerson;
 	pWatch = 0;
 	Smalltalk_American::populatePhrases();
@@ -22,16 +23,19 @@ Smalltalk_American::Smalltalk_American(int iPerson) : Smalltalk(AMERICAN, iPerso
 
 Smalltalk_American::Smalltalk_American(std::string myNationality,int iPerson) :
 	Smalltalk(myNationality, iPerson){
-//	nationality = myNationality;
+	//ID the person, set the watch to null, and populate the phrases
 	this->iPerson = iPerson;
 	pWatch = 0;
+	Smalltalk_American::populatePhrases();
 }
 
 Smalltalk_American::~Smalltalk_American(void) {
+	//Get rid of the object the pointer points to
 	pWatch.reset();
 }
 
 void Smalltalk_American::populatePhrases() {
+	//Phrases an American would say
 	mySmallTalk.push_back(AMERICAN_PHRASE_1);
 	mySmallTalk.push_back(AMERICAN_PHRASE_2);
 	mySmallTalk.push_back(AMERICAN_PHRASE_3);

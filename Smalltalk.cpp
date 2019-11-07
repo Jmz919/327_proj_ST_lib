@@ -29,7 +29,7 @@ Smalltalk::~Smalltalk(void) {
 //AMERICAN 10:Why yes, I would like to supersize that
 std::string Smalltalk::saySomething() {
 	int phraseToSay = current_phrase % mySmallTalk.size();
-	std::string phrase = nationality + " "  + std::to_string(iPerson) + ":" + mySmallTalk[phraseToSay];
+	std::string phrase = nationality + " " + std::to_string(iPerson) + ":" + mySmallTalk[phraseToSay];
 	current_phrase++;
 	return phrase;
 }

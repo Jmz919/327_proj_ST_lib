@@ -15,6 +15,7 @@
 //create with appropriate phrases
 //use base class call to set Nationality (See constants for Nationality strings)
 Smalltalk_Brit::Smalltalk_Brit(int iPerson) : Smalltalk(BRIT, iPerson){
+	//ID person, set watch to null, and popluate British phrases
 	this->iPerson = iPerson;
 	pWatch = 0;
 	Smalltalk_Brit::populatePhrases();
