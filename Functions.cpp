@@ -2,7 +2,7 @@
 /*
  * Functions.cpp
  *
- *  Created on: Nov 7, 2019
+ *  Created on: Nov 22, 2019
  *      Author: Josh Zutell
  */
 #include <iostream>
@@ -27,7 +27,7 @@ std::vector<std::unique_ptr<Smalltalk>> getPeople(int numBrit,
 	//create a vector to hold SmallTalk unique pointers
 	std::vector<std::unique_ptr<Smalltalk>> people;
 
-	//add brits to vector
+	//add Brits to vector
 	for (int i = 0; i < numBrit; i++) {
 		people.push_back(std::unique_ptr<Smalltalk_Brit>(new Smalltalk_Brit(i)));
 	}
@@ -35,22 +35,18 @@ std::vector<std::unique_ptr<Smalltalk>> getPeople(int numBrit,
 	//Helps to keep track of total number of people and id of people
 	int totalNum = numAmerican+numBrit;
 
-	//add americans to vector
+	//add Americans to vector
 	for (int i = numBrit; i < totalNum; i++) {
 		people.push_back(std::unique_ptr<Smalltalk_American>(new Smalltalk_American(i)));
 	}
 
-	//add american donut enthusiest  to vector
+	//add American donut enthusiest to vector
 	for (int i = totalNum; i < numbAmericanDonutEnthusiest+totalNum; i++) {
 		people.push_back(std::unique_ptr<ST_American_DonutEnthusiest>(new ST_American_DonutEnthusiest(i)));
 	}
 
 	totalNum += numbAmericanDonutEnthusiest;
 
-	//create some watches (as long as number watches <= numb people)
-	//then give the watches away to first NUM_WATCHES people in the vector
-	//when you are finished using the vector you return
-	//from this function(see Smalltalk header for hints)
 	//Vector to hold all the watches
 	std::vector<std::unique_ptr<Watch>> watches;
 

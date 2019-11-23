@@ -1,8 +1,8 @@
 /*
  * Smalltalk_American.cpp
  *
- *  Created on: Nov 6, 2019
- *      Author: jmz
+ *  Created on: Nov 22, 2019
+ *      Author: Josh Zutell
  */
 
 #include <string>
@@ -16,22 +16,17 @@
 //use base class call to set Nationality (See constants for Nationality strings)
 Smalltalk_American::Smalltalk_American(int iPerson) : Smalltalk(AMERICAN, iPerson){
 	//ID the person, make the watch null, and populate the phrases
-	this->iPerson = iPerson;
-	pWatch = 0;
 	Smalltalk_American::populatePhrases();
 }
 
 Smalltalk_American::Smalltalk_American(std::string myNationality,int iPerson) :
 	Smalltalk(myNationality, iPerson){
 	//ID the person, set the watch to null, and populate the phrases
-	this->iPerson = iPerson;
-	pWatch = 0;
 	Smalltalk_American::populatePhrases();
 }
 
 Smalltalk_American::~Smalltalk_American(void) {
-	//Get rid of the object the pointer points to
-	pWatch.reset();
+	//Calls Smalltalk destructor that cleans up everything
 }
 
 void Smalltalk_American::populatePhrases() {
